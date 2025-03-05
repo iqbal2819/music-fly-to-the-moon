@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Music</title>
+  </head>
+  <body>
+    <h1 align="center">Fly Me To The Moon</h1>
+    <audio controls id="audio">
+      <source src="fly me to the moon.mp3" type="audio/mpeg" opacity="0" />
+    </audio>
+    <button id="play">Play</button>
+    <div class="wrap">
+      <h3 id="text">...</h3>
+    </div>
+    <div class="starContainer"></div>
+
+    <script>
+      let text = document.getElementById("text");
+      let audio = document.getElementById("audio");
+      let play = document.getElementById("play");
+      let lirikBox = document.querySelector(".wrap");
+      let lirikArray = [
+        "Fly Me To The Moon",
+        "And Let Me Play Among The Stars",
+        "Let Me See What Spring Is Like",
+        "On Jupiter And Mars",
+        "In Other Words, Hold My Hand",
+        "In Other Words, Darling, Kiss Me",
+
+        "Fill My Heart With Song",
+        "And Let Me Sing For Ever More",
+        "You Are All I Long For",
+        "All I Worship And Adore",
+        "In Other Words, Please Be True",
+        "In Other Words,<span> I Love You </span>",
+        "...",
+        "Fill My Heart With Song",
+        "And Let Me Sing For Ever More",
+        "You Are All I Long For",
+        "All I Worship And Adore",
+        "In Other Words, Please Be True",
+        "In Other Words,<span> I Love You </span>",
+      ];
+      let line = 0;
+      play.addEventListener("click", function () {
+        setTimeout(() => {
+          lirikBox.style.opacity = 1;
+          setTimeout(showLirik, 9000);
+          animateStars();
+          audio.play();
+          play.style.opacity = "0";
+          setTimeout((play.style.display = "none"), 3000);
+        }, 2000);
+      });
+      function showLirik() {
+        if (line < lirikArray.length) {
+          text.innerHTML = `<h3 style="transition:all 1s;">${lirikArray[line]}</h3>`;
+
+          if (line == 0) {
+            animateStars();
+            console.log(lirikArray[line]);
+            setTimeout(showLirik, 3500);
+          } else if (line == 1) {
+            animateStars();
+            console.log(lirikArray[line]);
+            setTimeout(showLirik, 6000);
+          } else if (line == 2) {
+            animateStars();
+            console.log(lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          } else if (line == 3) {
+            animateStars();
+            console.log(lirikArray[line]);
+            setTimeout(showLirik, 3500);
+          } else if (line == 4) {
+            animateStars();
+            console.log("4", lirikArray[line]);
+            setTimeout(showLirik, 9000);
+          } else if (line == 5) {
+            animateStars();
+            console.log("5", lirikArray[line]);
+            setTimeout(showLirik, 9000);
+          } else if (line == 6) {
+            animateStars();
+            console.log("6", lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          } else if (line == 7) {
+            animateStars();
+            console.log("7", lirikArray[line]);
+            setTimeout(showLirik, 6000);
+          } else if (line == 8) {
+            animateStars();
+            console.log("8", lirikArray[line]);
+            setTimeout(showLirik, 3000);
+          } else if (line == 9) {
+            animateStars();
+            console.log("9", lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          } else if (line == 10) {
+            animateStars();
+            console.log("10", lirikArray[line]);
+            setTimeout(showLirik, 9000);
+          } else if (line == 11) {
+            animateStars();
+            console.log("11", lirikArray[line]);
+            setTimeout(showLirik, 8000);
+          } else if (line == 12) {
+            if (line == 12) {
+              animateStars();
+              setInterval(animateStars, 4500);
+              console.log("12", lirikArray[line]);
+              setTimeout(showLirik, 34000);
+            } else {
+              setInterval("aaa()", 10000);
+            }
+          } else if (line == 13) {
+            animateStars();
+            console.log("13", lirikArray[line]);
+            setTimeout(showLirik, 3000);
+          } else if (line == 14) {
+            animateStars();
+            console.log("14", lirikArray[line]);
+            setTimeout(showLirik, 5000);
+          } else if (line == 15) {
+            animateStars();
+            console.log("15", lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          } else if (line == 16) {
+            animateStars();
+            console.log("16", lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          } else if (line == 17) {
+            console.log("17", lirikArray[line]);
+            setTimeout(showLirik, 6000);
+          } else if (line == 17) {
+            console.log("18", lirikArray[line]);
+            setTimeout(showLirik, 4000);
+          }
+
+          line++;
+        }
+      }
+    </script>
+
+    <!-- membuat star -->
+    <script>
+      let starContainer = document.querySelector(".starContainer");
+      let numStar = 100;
+
+      setTimeout(() => {
+        for (let i = 0; i < numStar; i++) {
+          let star = document.createElement("div");
+          star.classList.add("star");
+
+          star.style.width = `${Math.random() * 5}px`;
+          star.style.height = `${Math.random() * 5}px`;
+          star.style.top = `${Math.random() * 100}vh`;
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.boxShadow = `0 0 ${Math.random() * 10}px yellow,0 0 ${Math.random() * 10}px yellow,0 0 ${Math.random() * 10}px yellow`;
+          starContainer.appendChild(star);
+        }
+      }, 1000);
+
+      function animateStars() {
+        let stars = document.querySelectorAll(".star");
+        stars.forEach((star) => {
+          setTimeout(() => {
+            star.style.opacity = `${Math.random() * 1}`;
+            star.style.top = `${Math.random() * 100}vh`;
+            //star.style.left = `${Math.random() * 100}vw`;
+          }, 1000);
+        });
+      }
+      //setInterval(animateStars, 8000);
+    </script>
+  </body>
+</html>
